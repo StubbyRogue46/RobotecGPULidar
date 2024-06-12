@@ -30,7 +30,7 @@ set(RGL_AUTO_TAPE_PATH "" CACHE STRING  # STRING prevents from expanding relativ
 set(RGL_BUILD_STATIC OFF CACHE BOOL
     "Builds RobotecGPULidar as a statically linkable library instead of a shared one")
 set(RGL_BUILD_API_FORCE_EXPORT OFF CACHE BOOL
-    "Forces the build of RobotecGPULidar to mark API symbols for export, even if the library is build as static one")
+    "Forces the build of RobotecGPULidar to mark API symbols for export, even if the library is build as a static one")
 
 # Test configuration
 set(RGL_BUILD_TESTS ON CACHE BOOL
