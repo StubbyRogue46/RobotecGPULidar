@@ -47,6 +47,9 @@
 - Added static build option
   - Added variable to the CMakeLists (default OFF):
     - `RGL_BUILD_STATIC`
+- Added build option to force API symbol export
+  - Added variable to the CMakeLists (default OFF):
+    - `RGL_BUILD_API_FORCE_EXPORT`
 
 ### Changed
 - Optimized tape files format to be lighter and be loaded faster

@@ -29,6 +29,8 @@ set(RGL_AUTO_TAPE_PATH "" CACHE STRING  # STRING prevents from expanding relativ
 # Library configuration
 set(RGL_BUILD_STATIC OFF CACHE BOOL
     "Builds RobotecGPULidar as a statically linkable library instead of a shared one")
+set(RGL_BUILD_API_FORCE_EXPORT OFF CACHE BOOL
+    "Forces the build of RobotecGPULidar to mark API symbols for export, even if the library is build as static one")
 
 # Test configuration
 set(RGL_BUILD_TESTS ON CACHE BOOL
@@ -147,6 +149,10 @@ target_compile_definitions(RobotecGPULidar PUBLIC RGL_BUILD_PCL_EXTENSION=$<BOOL
 target_compile_definitions(RobotecGPULidar PUBLIC RGL_BUILD_ROS2_EXTENSION=$<BOOL:${RGL_BUILD_ROS2_EXTENSION}>)
 target_compile_definitions(RobotecGPULidar PUBLIC RGL_BUILD_UDP_EXTENSION=$<BOOL:${RGL_BUILD_UDP_EXTENSION}>)
 target_compile_definitions(RobotecGPULidar PUBLIC RGL_BUILD_SNOW_EXTENSION=$<BOOL:${RGL_BUILD_SNOW_EXTENSION}>)
+
+if (RGL_BUILD_API_FORCE_EXPORT)
+    target_compile_definitions(RobotecGPULidar PUBLIC RGL_API_FORCE_EXPORT)
+endif()
 
 if (RGL_BUILD_PCL_EXTENSION)
     add_subdirectory(extensions/pcl)

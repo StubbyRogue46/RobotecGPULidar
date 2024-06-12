@@ -28,7 +28,7 @@
 #define NO_MANGLING
 #endif
 
-#if defined RGL_STATIC
+#if defined RGL_STATIC && !defined RGL_API_FORCE_EXPORT
 #define RGL_VISIBLE
 #else
 #if defined _WIN32 || defined __CYGWIN__
